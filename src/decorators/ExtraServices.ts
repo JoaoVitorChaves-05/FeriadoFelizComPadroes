@@ -3,10 +3,12 @@ import {
     IExtraService,
     IExtraServiceItem,
 } from '../interfaces/IPackage';
+import { Subject } from '../observers/Subject';
 
 class ExtraServicesDecorator implements IExtraService {
     protected packageTravel: IPackageTravel;
     public services: IExtraServiceItem[];
+    protected subject: Subject = new Subject();
 
     constructor(packageTravel: IPackageTravel) {
         this.packageTravel = packageTravel;
@@ -25,6 +27,10 @@ class ExtraServicesDecorator implements IExtraService {
 
     getPackageTravel(): IPackageTravel {
         return this.packageTravel;
+    }
+
+    getSubject(): Subject {
+        return this.subject;
     }
 }
 
@@ -60,6 +66,7 @@ class SafeTravelService extends ExtraServicesDecorator implements IExtraServiceI
 
     setServicePrice(price: number): void {
         this.servicePrice = price;
+        this.subject.notify(this.getTotalPrice(), this);
     }
 
 }
@@ -88,6 +95,7 @@ class TouristTourService extends ExtraServicesDecorator implements IExtraService
 
     setServicePrice(price: number): void {
         this.servicePrice = price;
+        this.subject.notify(this.getTotalPrice(), this);
     }
 }
 
@@ -115,6 +123,7 @@ class AirportTransferService extends ExtraServicesDecorator implements IExtraSer
 
     setServicePrice(price: number): void {
         this.servicePrice = price;
+        this.subject.notify(this.getTotalPrice(), this);
     }
 }
 
@@ -142,6 +151,7 @@ class RoomWithViewService extends ExtraServicesDecorator implements IExtraServic
 
     setServicePrice(price: number): void {
         this.servicePrice = price;
+        this.subject.notify(this.getTotalPrice(), this);
     }
 }
 
