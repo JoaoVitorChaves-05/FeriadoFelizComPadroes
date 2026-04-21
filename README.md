@@ -1,4 +1,9 @@
-# Desafio: Feriado Feliz com Padroes de Projeto
+# Desafio: Feriado Feliz com Padroes de Projeto - Projeto Orientado à Objetos - UNIFESP 2026
+
+Aluno: João Vitor Mâncio Chaves
+RA: 176.534
+
+[Deploy (hosted)]: https://feriado-feliz-com-padroes.vercel.app/
 
 ## Contexto
 Uma agencia de viagens chamada **Feriado Feliz** quer vender pacotes promocionais para feriados.

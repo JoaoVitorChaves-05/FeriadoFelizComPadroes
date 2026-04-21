@@ -138,9 +138,9 @@ export default function App() {
     <div className="page">
       <header className="hero">
         <p className="eyebrow">Feriado Feliz</p>
-        <h1>Monte sua viagem e feche com segurança</h1>
+        <h1>Monte sua viagem e aproveite com segurança</h1>
         <p>
-          Escolha o pacote, adicione serviços e finalize usando fachada + proxy para o gateway externo de pagamento.
+          Escolha o pacote com Factories, adicione serviços através de Decorators e finalize usando fachada + proxy para o gateway externo de pagamento ou aplique desconto de gerente para um pedido existente com Observers.
         </p>
       </header>
 
