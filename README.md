@@ -54,7 +54,7 @@ O projeto segue uma arquitetura simples em camadas com foco em separação de re
 - Domínio e composição de pacotes: [src/domain/travel.ts](src/domain/travel.ts#L1) e [src/domain/packageBasePrices.ts](src/domain/packageBasePrices.ts#L1)
 - Factory: [src/factories/PackageFatory.ts](src/factories/PackageFatory.ts#L1)
 - Decorators (serviços extras): [src/decorators/ExtraServices.ts](src/decorators/ExtraServices.ts#L1)
-- Observers: [src/observers/OrderValueSubject.ts](src/observers/OrderValueSubject.ts#L1), [src/observers/OrderValueObserver.ts](src/observers/OrderValueObserver.ts#L1), e artefatos legados em [src/observers/PricesObserver.ts](src/observers/PricesObserver.ts#L1)
+- Observers: [src/observers/OrderValueSubject.ts](src/observers/OrderValueSubject.ts#L1) e [src/observers/OrderValueObserver.ts](src/observers/OrderValueObserver.ts#L1)
 - Pagamento / Integração: [src/payment/ExternalPartnerPaymentGateway.ts](src/payment/ExternalPartnerPaymentGateway.ts#L1), [src/payment/PaymentProxy.ts](src/payment/PaymentProxy.ts#L1), [src/payment/PaymentFacade.ts](src/payment/PaymentFacade.ts#L1)
 - UI (React): [src/main.tsx](src/main.tsx#L1) e [src/App.tsx](src/App.tsx#L1)
 
