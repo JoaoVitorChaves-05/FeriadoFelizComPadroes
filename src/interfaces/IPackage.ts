@@ -6,7 +6,7 @@ interface IPackageTravel {
     getInitialPrice(): number;
 
     setDescription(description: string): void;
-
+    setPrice(price: number): void;
 }
 
 interface IPackageFactory {

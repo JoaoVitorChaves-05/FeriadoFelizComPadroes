@@ -1,0 +1,257 @@
+:root {
+  --bg: #fff7ea;
+  --surface: #fffdf8;
+  --line: #f2d7b5;
+  --ink: #2e1e0f;
+  --muted: #7b5d47;
+  --primary: #c55a11;
+  --primary-strong: #964104;
+  --ok: #1f7a40;
+  --warn: #9d3d00;
+  --error: #9c2222;
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(101, 57, 21, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 10%, #ffe8c4 0, var(--bg) 40%),
+    linear-gradient(180deg, #fff9f0, #fff3e0);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28px;
+}
+
+.hero {
+  max-width: 980px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #fff2df, #ffe0b7);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  animation: reveal 380ms ease-out;
+}
+
+.eyebrow {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warn);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.layout {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  animation: reveal 500ms ease-out;
+}
+
+.flow-card {
+  grid-column: span 2;
+}
+
+.package-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.package-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: left;
+  padding: 12px;
+  background: #fff;
+  color: var(--ink);
+  display: grid;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.package-item:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+}
+
+.package-item.active {
+  border-color: var(--primary);
+  outline: 2px solid #ffd2ab;
+}
+
+.extras-list {
+  display: grid;
+  gap: 8px;
+}
+
+.extra-item {
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.summary {
+  margin: 14px 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff7eb;
+}
+
+.primary,
+.secondary {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--primary-strong);
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: #ffe4ca;
+  color: #5d2d07;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  color: var(--ink);
+}
+
+.hint {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.orders-card {
+  grid-column: 1 / -1;
+}
+
+.order-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.order-item header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.status {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.status.pendente {
+  color: var(--warn);
+}
+
+.status.aprovado {
+  color: var(--ok);
+}
+
+.status.falhou {
+  color: var(--error);
+}
+
+.payment-meta {
+  border-top: 1px dashed var(--line);
+  margin: 10px 0;
+  padding-top: 10px;
+}
+
+.feedback {
+  max-width: 980px;
+  margin: 16px auto 0;
+  min-height: 24px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-card,
+  .orders-card {
+    grid-column: auto;
+  }
+
+  .page {
+    padding: 16px;
+  }
+}
