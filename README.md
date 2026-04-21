@@ -3,7 +3,7 @@
 Aluno: João Vitor Mâncio Chaves
 RA: 176.534
 
-Deploy em: `https://feriado-feliz-com-padroes.vercel.app/`
+Deploy em: [https://feriado-feliz-com-padroes.vercel.app/](https://feriado-feliz-com-padroes.vercel.app/)
 
 [Deploy (hosted)]: https://feriado-feliz-com-padroes.vercel.app/
 
