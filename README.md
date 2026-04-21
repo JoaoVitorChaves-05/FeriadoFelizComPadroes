@@ -1,30 +1,37 @@
-# Desafio: Feriado Feliz com Padroes de Projeto
+# Feriado Feliz com React + Padroes de Projeto
 
-## Contexto
-Uma agencia de viagens chamada **Feriado Feliz** quer vender pacotes promocionais para feriados.
-O sistema precisa permitir que clientes montem pacotes com servicos extras, acompanhem atualizacoes de preco e status, e recebam confirmacoes de parceiros externos.
+Aplicacao web para montar e comprar pacotes de viagem com painel de gerente para aplicar desconto.
 
----
+## O que foi implementado
 
-## Problema Proposto
-Implemente um sistema de montagem e compra de pacotes de viagem para feriados com as seguintes regras:
+1. Fluxo de cliente em React para:
+   - selecionar pacote base (`Economico`, `Premium`, `Luxo`)
+   - escolher servicos extras
+   - criar pedido
+2. Painel do gerente para aplicar desconto em pedidos ja criados.
+3. Camada de pagamento com:
+   - `PaymentFacade`: simplifica o uso para a interface
+   - `PaymentProxy`: controla autorizacao, mede tempo de chamada e aplica cache
+   - `ExternalPartnerPaymentGateway`: simulacao do sistema externo de pagamento
 
-1. O cliente escolhe um tipo de pacote base:
-	 - `Economico`
-	 - `Premium`
-	 - `Luxo`
-2. Cada pacote base possui descricao e preco inicial.
-3. O cliente pode adicionar extras ao pacote:
-	 - Seguro viagem
-	 - Passeio turistico
-	 - Transfer aeroporto
-	 - Quarto com vista
-4. O sistema deve notificar interessados quando:
-	 - preco do pacote for alterado
-	 - status do pacote mudar (CRIADO, EM_ANALISE, CONFIRMADO, CANCELADO)
-5. A confirmacao de pagamento e reserva vem de um sistema de parceiro externo com interface diferente da sua.
-6. Deve existir controle central de logs/configuracao global da aplicacao.
-7. O acesso ao servico de confirmacao externa deve passar por uma camada que:
-	 - controla permissao/autorizacao
-	 - registra tempo de chamada
-	 - evita chamadas desnecessarias (cache simples opcional)
+## Arquitetura principal
+
+- `src/App.tsx`: interface React com fluxo de criacao de pedido, pagamento e desconto
+- `src/domain/travel.ts`: catalogos, tipos de pedido e regras de desconto
+- `src/payment/PaymentFacade.ts`: fachada para pagamento
+- `src/payment/PaymentProxy.ts`: proxy com autorizacao, cache e monitoramento
+- `src/payment/ExternalPartnerPaymentGateway.ts`: adaptacao/simulacao de parceiro externo
+
+## Executar o projeto
+
+```bash
+npm install
+npm run dev
+```
+
+## Scripts disponiveis
+
+- `npm run dev`: inicia aplicacao React com Vite
+- `npm run build`: valida TypeScript e gera build de producao
+- `npm run preview`: executa preview da build
+- `npm test`: executa testes Jest existentes

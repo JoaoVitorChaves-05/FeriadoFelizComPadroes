@@ -47,12 +47,16 @@ class SafeTravelService extends ExtraServicesDecorator implements IExtraServiceI
     private servicePrice: number = 100; // Exemplo de preço para o serviço de seguro viagem
 
     constructor(packageTravel: IPackageTravel | ExtraServicesDecorator) {
+        const basePackage = packageTravel instanceof ExtraServicesDecorator
+            ? packageTravel.getPackageTravel()
+            : packageTravel;
+
+        super(basePackage);
+
         if (packageTravel instanceof ExtraServicesDecorator) {
-            super(packageTravel.getPackageTravel());
-            this.services = [...packageTravel.getServices()];
-            this.services.push(this);
+            this.services = [...packageTravel.getServices(), this];
         } else {
-            super(packageTravel);
+            this.services = [this];
         }
     }
 
@@ -76,12 +80,16 @@ class TouristTourService extends ExtraServicesDecorator implements IExtraService
     private servicePrice: number = 150; // Exemplo de preço para o serviço de passeio turístico
 
     constructor(packageTravel: IPackageTravel | ExtraServicesDecorator) {
+        const basePackage = packageTravel instanceof ExtraServicesDecorator
+            ? packageTravel.getPackageTravel()
+            : packageTravel;
+
+        super(basePackage);
+
         if (packageTravel instanceof ExtraServicesDecorator) {
-            super(packageTravel.getPackageTravel());
-            this.services = [...packageTravel.getServices()];
-            this.services.push(this);
+            this.services = [...packageTravel.getServices(), this];
         } else {
-            super(packageTravel);
+            this.services = [this];
         }
     }
 
@@ -104,12 +112,16 @@ class AirportTransferService extends ExtraServicesDecorator implements IExtraSer
     private servicePrice: number = 200; // Exemplo de preço para o serviço de transfer aeroporto
 
     constructor(packageTravel: IPackageTravel | ExtraServicesDecorator) {
+        const basePackage = packageTravel instanceof ExtraServicesDecorator
+            ? packageTravel.getPackageTravel()
+            : packageTravel;
+
+        super(basePackage);
+
         if (packageTravel instanceof ExtraServicesDecorator) {
-            super(packageTravel.getPackageTravel());
-            this.services = [...packageTravel.getServices()];
-            this.services.push(this);
+            this.services = [...packageTravel.getServices(), this];
         } else {
-            super(packageTravel);
+            this.services = [this];
         }
     }
 
@@ -132,12 +144,16 @@ class RoomWithViewService extends ExtraServicesDecorator implements IExtraServic
     private servicePrice: number = 250; // Exemplo de preço para o serviço de quarto com vista
 
     constructor(packageTravel: IPackageTravel | ExtraServicesDecorator) {
+        const basePackage = packageTravel instanceof ExtraServicesDecorator
+            ? packageTravel.getPackageTravel()
+            : packageTravel;
+
+        super(basePackage);
+
         if (packageTravel instanceof ExtraServicesDecorator) {
-            super(packageTravel.getPackageTravel());
-            this.services = [...packageTravel.getServices()];
-            this.services.push(this);
+            this.services = [...packageTravel.getServices(), this];
         } else {
-            super(packageTravel);
+            this.services = [this];
         }
     }
 

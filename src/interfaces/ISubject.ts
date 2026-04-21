@@ -1,4 +1,4 @@
-import { IPriceObserver } from './IViewPrices';
+import { IPriceObserver } from './IPricesObserver';
 
 interface ISubject {
     attach(observer: IPriceObserver): void;

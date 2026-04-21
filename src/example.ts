@@ -1,6 +1,6 @@
 import PackageFactory from './factories/PackageFatory';
 import { SafeTravelService, TouristTourService, AirportTransferService, RoomWithViewService } from './decorators/ExtraServices';
-import { PricesObserver } from './observers/ViewPrices';
+import PricesObserver from './observers/PricesObserver';
 
 console.log('=== Demonstração do Padrão Observer em Ação ===\n');
 
@@ -34,8 +34,9 @@ console.log('--- Observer registrado no Subject ---\n');
 // Alterar preço de um serviço (dispara notificação)
 console.log('Alterando preço do "Transfer Aeroporto" para R$ 300...');
 const services = packageWithServices.getServices();
-if (services.length > 0) {
-    services[0].setServicePrice(300);
+const firstService = services[0];
+if (firstService) {
+    firstService.setServicePrice(300);
     console.log('\nObserver foi notificado!');
     observer.displayPackagePrice();
     observer.displayExtraServicesPrice();
